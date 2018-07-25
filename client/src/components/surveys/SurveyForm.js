@@ -4,24 +4,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import validateEmails from '../../utils/validateEmails';
-
-const FIELDS = [
-  { label: 'Survey Title', name: 'title', noValueError: 'You must provide a title' },
-  { label: 'Subject', name: 'subject', noValueError: 'You must provide a subject' },
-  { label: 'Email Body', name: 'body', noValueError: 'You must provide a body' },
-  { label: 'Recipient List', name: 'emails', noValueError: 'You must provide an email' }
-];
+import formFields from './formFields';
 
 class SurveyForm extends Component {
-  async submitForm({
-    title,
-    subject,
-    body,
-    emails
-  }) {
-    const survey = { title, subject, recipients: emails, body };
-    const res = await axios.post('/api/surveys', survey);
-    console.log(res);
+  constructor(props) {
+    super(props);
   }
 
   renderField(field) {
@@ -40,7 +27,7 @@ class SurveyForm extends Component {
 
   renderFields() {
     return (
-      FIELDS.map(({ name, label }) => {
+      formFields.map(({ name, label }) => {
         return <Field
           key={name}
           name={name}
@@ -54,7 +41,7 @@ class SurveyForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.submitForm)}>
+      <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
         {this.renderFields()}
         <button type="submit" className="teal btn-flat right white-text">
           Next
@@ -73,8 +60,8 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  errors.emails = validateEmails(values.emails || '');
-  FIELDS.forEach(({ name, noValueError }) => {
+  errors.recipients = validateEmails(values.recipients || '');
+  formFields.forEach(({ name, noValueError }) => {
     if (!values[name]) {
       errors[name] = noValueError;
     }
@@ -85,5 +72,6 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'surveyForm'
+  form: 'surveyForm',
+  detroyOnUnmount: false
 })(SurveyForm);
