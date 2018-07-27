@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
 
 class SurveyForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderField(field) {
     const { input, label, meta: { error, touched } } = field;
 

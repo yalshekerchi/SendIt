@@ -32,7 +32,7 @@ module.exports = (app) => {
         }, {
           $inc: { [choice]: 1 },
           $set: { 'recipients.$.responded': true },
-          lastResponded: new Date()
+          lastResponded: Date.now()
         }).exec();
       })
       .value();
@@ -68,5 +68,12 @@ module.exports = (app) => {
     } catch (err) {
       res.status(422).send(err);
     }
+  });
+
+  app.get('/api/surveys', requireLogin, async (req, res) => {
+    const surveys = await Survey.find({ _user: req.user.id })
+      .select({ recipients: false });
+
+    res.send(surveys);
   });
 };
