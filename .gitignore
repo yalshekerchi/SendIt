@@ -3,6 +3,7 @@ dev.js
 bundle.js
 npm-debug.log
 .DS_Store
+*.sublime*
 
 # IntelliJ
 *.iml

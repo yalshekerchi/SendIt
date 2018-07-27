@@ -27,15 +27,13 @@ class SurveyForm extends Component {
 
   renderFields() {
     return (
-      formFields.map(({ name, label }) => {
-        return <Field
+      formFields.map(({ name, label }) => <Field
           key={name}
           name={name}
           type="text"
           component={this.renderField}
           label={label}
-        />;
-      })
+        />)
     );
   }
 

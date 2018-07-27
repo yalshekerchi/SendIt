@@ -7,14 +7,12 @@ import * as actions from '../../actions';
 
 class SurveyFormReview extends Component {
   renderFields(values) {
-    return formFields.map(({ name, label }) => {
-      return (
+    return formFields.map(({ name, label }) => (
         <div key={name}>
           <label>{label}</label>
           <div>{values[name]}</div>
         </div>
-      );
-    });
+    ));
   }
 
   render() {
