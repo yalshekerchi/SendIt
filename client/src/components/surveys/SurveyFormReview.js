@@ -8,9 +8,9 @@ import * as actions from '../../actions';
 class SurveyFormReview extends Component {
   renderFields(values) {
     return formFields.map(({ name, label }) => (
-        <div key={name}>
+        <div key={name} className='review-form-field'>
           <label>{label}</label>
-          <div>{values[name]}</div>
+          <div className='review-form-value'>{values[name]}</div>
         </div>
     ));
   }
@@ -19,9 +19,11 @@ class SurveyFormReview extends Component {
     return (
       <div>
         <h5>Please confirm your entries</h5>
-        <div>
+        <br />
+        <div className='card'>
           {this.renderFields(this.props.formValues)}
         </div>
+        <br />
         <button className="yellow darken-3 btn-flat left white-text" onClick={this.props.onCancel}>
           Back
         </button>

@@ -10,13 +10,30 @@ class Header extends Component {
       case null:
         return null;
       case false:
-        return <li><a href="/auth/google">Login With Google</a></li>;
+        return (
+          <li>
+            <a href='/auth/google'>
+              <button className='btn purple darken-3'>
+                Login With Google
+              </button>
+            </a>
+          </li>
+        );
       default:
         return (
           [
-            <li key='1'><Payments /></li>,
-            <li key='3' style={{ margin: '0 10px' }}>Credits: {this.props.auth.credits}</li>,
-            <li key='2'><a href="/api/logout">Logout</a></li>
+            <li key='1'>
+              <a>
+                <Payments />
+              </a>
+            </li>,
+            <li key='2'>
+              <a href='/api/logout'>
+                <button className='btn purple darken-3'>
+                  Logout
+                </button>
+              </a>
+            </li>
           ]
         );
     }
@@ -24,18 +41,16 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <Link
-            to={this.props.auth ? '/surveys' : '/'}
-            className="left brand-logo"
-          >
-            Emaily
-          </Link>
-          <ul id="nav-mobile" className="right">
-            {this.renderContent()}
-          </ul>
-        </div>
+      <nav className="nav-wrapper grey darken-3">
+        <Link
+          to={this.props.auth ? '/surveys' : '/'}
+          className="left brand-logo"
+        >
+          SendIt
+        </Link>
+        <ul id="nav-mobile" className="right">
+          {this.renderContent()}
+        </ul>
       </nav>
     );
   }

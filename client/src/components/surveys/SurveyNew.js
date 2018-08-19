@@ -20,7 +20,8 @@ class SurveyNew extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container container-main">
+        <h4>Create Survey</h4>
         {this.renderContent()}
       </div>
     );

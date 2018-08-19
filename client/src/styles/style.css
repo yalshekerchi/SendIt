@@ -1,0 +1,57 @@
+html, body {
+  height: 100%;
+  background-color: #E1E2E1;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  margin: auto;
+}
+
+.card {
+  padding: 12px;
+  background-color: #F5F5F6;
+}
+
+.review-form-field {
+  margin: 12px;
+}
+
+.review-form-value {
+  font-size: 1.5rem
+}
+
+.landing {
+  min-height: calc(100vh - 64px);
+  background-color: #1B1B1B;
+  /* background-size: 100%;
+  background-repeat: no-repeat; */
+  padding: 10vh 0;
+  text-align: center;
+}
+
+.main-landing {
+  color: white;
+}
+
+.purple-darken-text {
+  color: #6A1B9A !important;
+  font-weight: 600;
+}
+
+.promotion-table {
+  margin-top: 20vh;
+}
+
+nav {
+  padding: 0 15px
+}
+
+a.left.brand-logo {
+  left: 30px;
+}
+
+label {
+  color: #404040;
+  font-size: 0.9rem
+}

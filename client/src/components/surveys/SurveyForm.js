@@ -12,7 +12,7 @@ class SurveyForm extends Component {
     return (
       <div>
         <label>{label}</label>
-        <input {...input} placeholder={label} style={{ marginBottom: '5px' }}/>
+        <input {...input} style={{ marginBottom: '5px' }}/>
         <div className="red-text" style={{ marginBottom: '20px' }}>
           {touched && error}
         </div>
@@ -34,9 +34,9 @@ class SurveyForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+      <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)} className='card'>
         {this.renderFields()}
-        <button type="submit" className="teal btn-flat right white-text">
+        <button type="submit" className="purple darken-3 btn-flat right white-text">
           Next
           <i className="material-icons right">done</i>
         </button>
